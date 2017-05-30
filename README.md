@@ -6,6 +6,8 @@ I've been playing with SVG watch dials recently, and needed a tool to simplify
 trying out ideas. I wrote this as a quick tool to programmatically generate
 dials. It's by no means a complete svg generator
 
+I described the structure of one of the dials in my [blog](http://labs.leap.io/post/generating-watchdials-1/).
+
 ## Notes
 
 1. The opening svg tag uses a viewbox; this makes sure that numbers without unit are considered to be in the unit that can optionally be speficied in `SvgGen::start()`

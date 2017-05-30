@@ -62,13 +62,13 @@ void dial_circleTests(SvgGen& gen, double originX, double originY)
 
     for (int i = 0; i < sections; ++i) {
         // outer circle: dots
-        double x = originX + outerRadius * cos(angleOffset +angleStep * i);
-        double y = originY + outerRadius * sin(angleOffset +angleStep * i);
+        double x = originX + outerRadius * cos(angleOffset + angleStep * i);
+        double y = originY + outerRadius * sin(angleOffset + angleStep * i);
         gen.circle(x, y, dotRadius);
 
         // numbers
-        x = originX + innerRadius * cos(angleOffset +angleStep * i);
-        y = originY + innerRadius * sin(angleOffset +angleStep * i);
+        x = originX + innerRadius * cos(angleOffset + angleStep * i);
+        y = originY + innerRadius * sin(angleOffset + angleStep * i);
         gen.text(labels[i], x, y, textStyle);
 
         // outer circle: small rectangles, rotated

@@ -38,7 +38,10 @@ int main(int argc, char** argv)
 {
     SvgGen gen;
 
-    gen.start(600, 400, "mm");
+    double width = 120;
+    double height = 120;
+
+    gen.start(width, height, "mm");
 
     char sel = '0'; // default
     if (argc > 1) {
@@ -47,7 +50,7 @@ int main(int argc, char** argv)
 
     switch (sel) {
     case '1':
-        dial_dotsAndNumbers(gen, 20, 20);
+        dial_dotsAndNumbers(gen, 5, 5);
         break;
     case '2':
         dial_circleTests(gen, 5, 5);
@@ -55,6 +58,9 @@ int main(int argc, char** argv)
     default:
         dial_secondsAt9(gen, 5, 5);
     }
+
+    // bounding box
+    // gen.rect(1, 1, width-1, height-1, "fill='transparent' stroke='#cccccc'");
 
     gen.end();
 

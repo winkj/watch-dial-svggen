@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
+
 #include <cmath>
 
 #include "svggen.h"
@@ -55,6 +55,8 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
     double rectOffsetX = rectWidth / 2;
     double rectOffsetY = rectHeight / 2;
 
+    double sections = 60;
+
     gen.circle(originX, originY, miniRadius, redCircleNoFill);
     gen.circle(originX-10.25, originY, secondsOuterRadius, redCircleWhiteFill);
     gen.circle(originX-10.25, originY, secondsInnerRadius, redCircleNoFill);
@@ -64,10 +66,10 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
     std::string mask = SvgGen().circle(originX, originY, miniRadius+0.2, "opacity='1'"); // +0.2 = 2x stroke; using a temp SvgGen since we don't wanna add it to our SVG
     gen.addDef("<mask id='cutoff'><rect id='bg' x='0' y='0' width='100%' height='100%' fill='white'/>" + mask + "</mask>");
 
-    double angleStep = 2 * 3.14159265359 / 60.0;
+    double angleStep = 2 * 3.14159265359 / sections;
     double angleOffset = -3.14159265359 / 2;
 
-    for (int i = 0; i < 60; ++i) {
+    for (int i = 0; i < sections; ++i) {
         rectHeight = (i % 5) ? 0.75 : 1.5;
         rectWidth = 0.5;
 

@@ -47,8 +47,10 @@ void dial_circleTests(SvgGen& gen, double originX, double originY)
     double rectOffsetY = rectHeight / 2;
     double dotRadius = 2;
 
-    double angleStep = 2 * 3.14159265359 / 12.0;
-    double angleOffset = -3.14159265359 / 2;
+    double sections = 12;
+
+    double angleStep = 2 * 3.14159265359 / sections;
+    double angleOffset = -3.14159265359 / 2; // the coordinate system starts at 3 o'clock
 
     gen.circle(originX, originY, outerRadius, redCircleNoFill);
     gen.circle(originX, originY, innerRadius, redCircleNoFill);
@@ -58,7 +60,7 @@ void dial_circleTests(SvgGen& gen, double originX, double originY)
     gen.circle(originX, originY, miniRadius-rectOffsetY, redCircleNoFill);
 
 
-    for (int i = 0; i < 12; ++i) {
+    for (int i = 0; i < sections; ++i) {
         // outer circle: dots
         double x = originX + outerRadius * cos(angleOffset +angleStep * i);
         double y = originY + outerRadius * sin(angleOffset +angleStep * i);

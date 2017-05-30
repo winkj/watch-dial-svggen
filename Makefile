@@ -8,4 +8,4 @@ all: $(SRC)
 
 
 genall: all
-	@for i in `seq 1 3`; do ./$(TARGET) > test-$$i.svg; done
+	@for i in `seq 1 3`; do ./$(TARGET) $$i > test-$$i.svg; done

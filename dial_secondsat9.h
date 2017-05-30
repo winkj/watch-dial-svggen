@@ -69,6 +69,8 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
     double angleStep = 2 * M_PI / sections;
     double angleOffset = -M_PI / 2;
 
+    static const double SECONDS_OFFSET = 10.25; // for ETA 6497/6498
+
     for (int i = 0; i < sections; ++i) {
         double angle = angleOffset + angleStep * i;
 
@@ -88,8 +90,8 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
         if (i % 5 == 0) {
             rectHeight = (i % 15 == 0) ? 1.5 : 1;
             rectWidth = (i % 15 == 0) ? 0.75 : 0.5;
-            x = originX-10.25 + secondsMiddleRadius * cos(angle);
-            y = originY + secondsMiddleRadius * sin(angle);
+            x = originX-SECONDS_OFFSET + secondsMiddleRadius * cos(angle);
+            y = originY                + secondsMiddleRadius * sin(angle);
 
             gen.rect(x-rectOffsetX, y-rectOffsetY, rectWidth/2.0, rectHeight/2.0,
                 "transform='rotate("

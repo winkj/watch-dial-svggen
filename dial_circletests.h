@@ -59,7 +59,6 @@ void dial_circleTests(SvgGen& gen, double originX, double originY)
     gen.circle(originX, originY, miniRadius, redCircleNoFill);
     gen.circle(originX, originY, miniRadius-rectOffsetY, redCircleNoFill);
 
-
     for (int i = 0; i < sections; ++i) {
         double angle = angleOffset + angleStep * i;
 

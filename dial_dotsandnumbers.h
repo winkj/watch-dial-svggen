@@ -27,13 +27,13 @@
 void dial_dotsAndNumbers(SvgGen& gen, double originX, double originY)
 {
     const char* labels[] = { "XII", "I", "II", "III", "IIII", "V", "VI", "VII", "VIII", "IX", "X", "XI" };
-    std::string textStyle = "text-anchor='middle' alignment-baseline='central'";
+    std::string textStyle = "text-anchor='middle' alignment-baseline='central' font-size='5'";
 
-    int offset = 30;
+    int offset = 10;
 
     for (int i = 0; i < 12; ++i) {
         int x = originX + i * offset;
-        gen.circle(x, originY, 5);
-        gen.text(labels[i] , x, originY + 15, textStyle);
+        gen.circle(x, originY, 2);
+        gen.text(labels[i] , x, originY + 5, textStyle);
     }
 }

@@ -66,8 +66,8 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
     std::string mask = SvgGen().circle(originX, originY, miniRadius+0.2, "opacity='1'"); // +0.2 = 2x stroke; using a temp SvgGen since we don't wanna add it to our SVG
     gen.addDef("<mask id='cutoff'><rect id='bg' x='0' y='0' width='100%' height='100%' fill='white'/>" + mask + "</mask>");
 
-    double angleStep = 2 * 3.14159265359 / sections;
-    double angleOffset = -3.14159265359 / 2;
+    double angleStep = 2 * M_PI / sections;
+    double angleOffset = -M_PI / 2;
 
     for (int i = 0; i < sections; ++i) {
         rectHeight = (i % 5) ? 0.75 : 1.5;

@@ -49,8 +49,8 @@ void dial_circleTests(SvgGen& gen, double originX, double originY)
 
     double sections = 12;
 
-    double angleStep = 2 * 3.14159265359 / sections;
-    double angleOffset = -3.14159265359 / 2; // the coordinate system starts at 3 o'clock
+    double angleStep = 2 * M_PI / sections;
+    double angleOffset = -M_PI / 2; // the coordinate system starts at 3 o'clock
 
     gen.circle(originX, originY, outerRadius, redCircleNoFill);
     gen.circle(originX, originY, innerRadius, redCircleNoFill);

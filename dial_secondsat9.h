@@ -70,11 +70,13 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
     double angleOffset = -M_PI / 2;
 
     for (int i = 0; i < sections; ++i) {
+        double angle = angleOffset + angleStep * i;
+
         rectHeight = (i % 5) ? 0.75 : 1.5;
         rectWidth = 0.5;
 
-        double x = originX + innerRadius * cos(angleOffset + angleStep * i);
-        double y = originY + innerRadius * sin(angleOffset + angleStep * i);
+        double x = originX + innerRadius * cos(angle);
+        double y = originY + innerRadius * sin(angle);
         gen.rect(x-rectOffsetX, y-rectOffsetY, rectWidth, rectHeight,
             "transform='rotate("
             + std::to_string(i * (360/60))
@@ -86,8 +88,8 @@ void dial_secondsAt9(SvgGen& gen, double originX, double originY)
         if (i % 5 == 0) {
             rectHeight = (i % 15 == 0) ? 1.5 : 1;
             rectWidth = (i % 15 == 0) ? 0.75 : 0.5;
-            x = originX-10.25 + secondsMiddleRadius * cos(angleOffset + angleStep * i);
-            y = originY + secondsMiddleRadius * sin(angleOffset + angleStep * i);
+            x = originX-10.25 + secondsMiddleRadius * cos(angle);
+            y = originY + secondsMiddleRadius * sin(angle);
 
             gen.rect(x-rectOffsetX, y-rectOffsetY, rectWidth/2.0, rectHeight/2.0,
                 "transform='rotate("

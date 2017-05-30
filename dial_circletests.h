@@ -61,19 +61,21 @@ void dial_circleTests(SvgGen& gen, double originX, double originY)
 
 
     for (int i = 0; i < sections; ++i) {
+        double angle = angleOffset + angleStep * i;
+
         // outer circle: dots
-        double x = originX + outerRadius * cos(angleOffset + angleStep * i);
-        double y = originY + outerRadius * sin(angleOffset + angleStep * i);
+        double x = originX + outerRadius * cos(angle);
+        double y = originY + outerRadius * sin(angle);
         gen.circle(x, y, dotRadius);
 
         // numbers
-        x = originX + innerRadius * cos(angleOffset + angleStep * i);
-        y = originY + innerRadius * sin(angleOffset + angleStep * i);
+        x = originX + innerRadius * cos(angle);
+        y = originY + innerRadius * sin(angle);
         gen.text(labels[i], x, y, textStyle);
 
         // outer circle: small rectangles, rotated
-        x = originX + miniRadius * cos(angleOffset + angleStep * i);
-        y = originY + miniRadius * sin(angleOffset + angleStep * i);
+        x = originX + miniRadius * cos(angle);
+        y = originY + miniRadius * sin(angle);
         gen.rect(x-rectOffsetX, y-rectOffsetY, rectWidth, rectHeight,
             "transform='rotate("
             + std::to_string(i * 30)
